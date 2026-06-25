@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+.ipynb_checkpoints/
+
+# ML artifacts
+*.joblib
+*.pkl
+models/*.bin
+
+# Secrets / env
+.env
+.env.*
+!.env.example
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Streamlit / Dash caches
+.streamlit/secrets.toml
+
+# Data we intentionally keep is committed; large pulled raw dumps are not
+data/raw/
