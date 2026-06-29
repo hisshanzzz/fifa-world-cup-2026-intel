@@ -119,3 +119,8 @@ Data credit: [martj42 International football results](https://github.com/martj42
 - [ ] Calibrated draw model for group-stage matches
 - [ ] Persist scored tweets so the sentiment app survives restarts
 - [ ] Deploy all three (Streamlit Community Cloud + a Dash host)
+
+## License
+
+[MIT](LICENSE) © 2026 Hisshan M. Match data is CC0 (public domain) via
+[martj42/international_results](https://github.com/martj42/international_results).
