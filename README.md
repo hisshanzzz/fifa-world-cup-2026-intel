@@ -1,5 +1,7 @@
 # FIFA World Cup 2026 — Intel ⚽📊📡
 
+**Status:** all three apps working end-to-end · free/no-key stack · `python run.py <app>`
+
 Three connected mini-products for the 2026 World Cup, all built on a free,
 no-paid-API stack:
 
