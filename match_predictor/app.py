@@ -40,6 +40,8 @@ def get_odds(n_sims: int):
 with st.sidebar:
     st.header("Controls")
     n_sims = st.slider("Monte-Carlo simulations", 1000, 20000, 5000, step=1000)
+    stage_filter = st.selectbox("Stage", ["Round of 32", "Group", "All"], index=0)
+    only_remaining = st.checkbox("Only unplayed matches", value=True)
     if st.button("Retrain model"):
         with st.spinner("Training..."):
             m = train()
@@ -64,17 +66,32 @@ with st.sidebar:
         st.info("All fixtures recorded.")
 
 preds = get_predictions()
+
+
+def apply_filters(df):
+    out = df.copy()
+    if stage_filter != "All" and "stage" in out.columns:
+        out = out[out.stage == stage_filter]
+    if only_remaining:
+        out = out[~out.played]
+    return out
+
+
 col1, col2 = st.columns([3, 2])
 
 with col1:
-    st.subheader("Remaining-match predictions")
-    show = preds.copy()
-    show["pick"] = show.apply(
-        lambda r: r.home if r.p_home >= max(r.p_draw, r.p_away)
-        else (r.away if r.p_away >= r.p_draw else "Draw"), axis=1)
-    st.dataframe(
-        show[["match_id", "kickoff", "home", "away", "p_home", "p_draw", "p_away", "pick", "played", "score"]],
-        use_container_width=True, hide_index=True)
+    label = "Remaining" if only_remaining else "All"
+    st.subheader(f"{label} {stage_filter if stage_filter != 'All' else ''} predictions".replace("  ", " ").strip())
+    show = apply_filters(preds)
+    if len(show):
+        show["pick"] = show.apply(
+            lambda r: r.home if r.p_home >= max(r.p_draw, r.p_away)
+            else (r.away if r.p_away >= r.p_draw else "Draw"), axis=1)
+        cols = ["match_id", "kickoff", "stage", "home", "away", "p_home", "p_draw", "p_away", "pick", "played", "score"]
+        st.dataframe(show[[c for c in cols if c in show.columns]],
+                     use_container_width=True, hide_index=True)
+    else:
+        st.info("No matches for this filter.")
 
 with col2:
     st.subheader("Title odds")
@@ -86,7 +103,8 @@ with col2:
     st.plotly_chart(fig, use_container_width=True)
 
 st.subheader("Next match win-probability breakdown")
-nxt = preds[~preds.played].head(1)
+_scope = preds[preds.stage == stage_filter] if stage_filter != "All" else preds
+nxt = _scope[~_scope.played].head(1)
 if len(nxt):
     r = nxt.iloc[0]
     bd = pd.DataFrame({

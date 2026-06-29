@@ -41,6 +41,7 @@ def predict_fixtures(bundle=None) -> pd.DataFrame:
         out.append({
             "match_id": m.match_id,
             "kickoff": m.kickoff,
+            "stage": m.get("stage", ""),
             "home": m.home,
             "away": m.away,
             "played": bool(m.played),

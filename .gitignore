@@ -28,3 +28,6 @@ Thumbs.db
 
 # Data we intentionally keep is committed; large pulled raw dumps are not
 data/raw/
+
+# Unrelated personal folder that happens to live in this directory
+application-human-rights-school-2026/
