@@ -1,17 +1,89 @@
 match_id,kickoff,stage,home,away,played,home_goals,away_goals,result
-R32-01,2026-06-28 16:00,R32,Argentina,Qatar,1,3,1,H
-R32-02,2026-06-28 20:00,R32,France,Saudi Arabia,1,3,0,H
-R32-03,2026-06-29 00:00,R32,Spain,Cameroon,1,3,0,H
-R32-04,2026-06-29 16:00,R32,England,Ghana,0,,,
-R32-05,2026-06-29 20:00,R32,Brazil,Austria,0,,,
-R32-06,2026-06-30 00:00,R32,Portugal,Poland,0,,,
-R32-07,2026-06-30 16:00,R32,Netherlands,Serbia,0,,,
-R32-08,2026-06-30 20:00,R32,Germany,Nigeria,0,,,
-R32-09,2026-07-01 00:00,R32,Belgium,Canada,0,,,
-R32-10,2026-07-01 16:00,R32,Italy,Australia,0,,,
-R32-11,2026-07-01 20:00,R32,Croatia,Ecuador,0,,,
-R32-12,2026-07-02 00:00,R32,Uruguay,Korea Republic,0,,,
-R32-13,2026-07-02 16:00,R32,Morocco,Denmark,0,,,
-R32-14,2026-07-02 20:00,R32,USA,Switzerland,0,,,
-R32-15,2026-07-03 00:00,R32,Mexico,Senegal,0,,,
-R32-16,2026-07-03 16:00,R32,Colombia,Japan,0,,,
+WC-001,2026-06-11 18:00,Group,Mexico,South Africa,1,2,0,H
+WC-002,2026-06-11 18:00,Group,South Korea,Czech Republic,1,2,1,H
+WC-003,2026-06-12 18:00,Group,Canada,Bosnia and Herzegovina,1,1,1,D
+WC-004,2026-06-12 18:00,Group,United States,Paraguay,1,4,1,H
+WC-005,2026-06-13 18:00,Group,Qatar,Switzerland,1,1,1,D
+WC-006,2026-06-13 18:00,Group,Brazil,Morocco,1,1,1,D
+WC-007,2026-06-13 18:00,Group,Haiti,Scotland,1,0,1,A
+WC-008,2026-06-13 18:00,Group,Australia,Turkey,1,2,0,H
+WC-009,2026-06-14 18:00,Group,Germany,Curaçao,1,7,1,H
+WC-010,2026-06-14 18:00,Group,Ivory Coast,Ecuador,1,1,0,H
+WC-011,2026-06-14 18:00,Group,Netherlands,Japan,1,2,2,D
+WC-012,2026-06-14 18:00,Group,Sweden,Tunisia,1,5,1,H
+WC-013,2026-06-15 18:00,Group,Belgium,Egypt,1,1,1,D
+WC-014,2026-06-15 18:00,Group,Iran,New Zealand,1,2,2,D
+WC-015,2026-06-15 18:00,Group,Spain,Cape Verde,1,0,0,D
+WC-016,2026-06-15 18:00,Group,Saudi Arabia,Uruguay,1,1,1,D
+WC-017,2026-06-16 18:00,Group,France,Senegal,1,3,1,H
+WC-018,2026-06-16 18:00,Group,Iraq,Norway,1,1,4,A
+WC-019,2026-06-16 18:00,Group,Argentina,Algeria,1,3,0,H
+WC-020,2026-06-16 18:00,Group,Austria,Jordan,1,3,1,H
+WC-021,2026-06-17 18:00,Group,Portugal,DR Congo,1,1,1,D
+WC-022,2026-06-17 18:00,Group,Uzbekistan,Colombia,1,1,3,A
+WC-023,2026-06-17 18:00,Group,England,Croatia,1,4,2,H
+WC-024,2026-06-17 18:00,Group,Ghana,Panama,1,1,0,H
+WC-025,2026-06-18 18:00,Group,Czech Republic,South Africa,1,1,1,D
+WC-026,2026-06-18 18:00,Group,Mexico,South Korea,1,1,0,H
+WC-027,2026-06-18 18:00,Group,Switzerland,Bosnia and Herzegovina,1,4,1,H
+WC-028,2026-06-18 18:00,Group,Canada,Qatar,1,6,0,H
+WC-029,2026-06-19 18:00,Group,Scotland,Morocco,1,0,1,A
+WC-030,2026-06-19 18:00,Group,Brazil,Haiti,1,3,0,H
+WC-031,2026-06-19 18:00,Group,United States,Australia,1,2,0,H
+WC-032,2026-06-19 18:00,Group,Turkey,Paraguay,1,0,1,A
+WC-033,2026-06-20 18:00,Group,Germany,Ivory Coast,1,2,1,H
+WC-034,2026-06-20 18:00,Group,Ecuador,Curaçao,1,0,0,D
+WC-035,2026-06-20 18:00,Group,Netherlands,Sweden,1,5,1,H
+WC-036,2026-06-20 18:00,Group,Tunisia,Japan,1,0,4,A
+WC-037,2026-06-21 18:00,Group,Belgium,Iran,1,0,0,D
+WC-038,2026-06-21 18:00,Group,New Zealand,Egypt,1,1,3,A
+WC-039,2026-06-21 18:00,Group,Spain,Saudi Arabia,1,4,0,H
+WC-040,2026-06-21 18:00,Group,Uruguay,Cape Verde,1,2,2,D
+WC-041,2026-06-22 18:00,Group,France,Iraq,1,3,0,H
+WC-042,2026-06-22 18:00,Group,Norway,Senegal,1,3,2,H
+WC-043,2026-06-22 18:00,Group,Argentina,Austria,1,2,0,H
+WC-044,2026-06-22 18:00,Group,Jordan,Algeria,1,1,2,A
+WC-045,2026-06-23 18:00,Group,Portugal,Uzbekistan,1,5,0,H
+WC-046,2026-06-23 18:00,Group,Colombia,DR Congo,1,1,0,H
+WC-047,2026-06-23 18:00,Group,England,Ghana,1,0,0,D
+WC-048,2026-06-23 18:00,Group,Panama,Croatia,1,0,1,A
+WC-049,2026-06-24 18:00,Group,Mexico,Czech Republic,1,3,0,H
+WC-050,2026-06-24 18:00,Group,South Africa,South Korea,1,1,0,H
+WC-051,2026-06-24 18:00,Group,Canada,Switzerland,1,1,2,A
+WC-052,2026-06-24 18:00,Group,Bosnia and Herzegovina,Qatar,1,3,1,H
+WC-053,2026-06-24 18:00,Group,Scotland,Brazil,1,0,3,A
+WC-054,2026-06-24 18:00,Group,Morocco,Haiti,1,4,2,H
+WC-055,2026-06-25 18:00,Group,United States,Turkey,1,2,3,A
+WC-056,2026-06-25 18:00,Group,Paraguay,Australia,1,0,0,D
+WC-057,2026-06-25 18:00,Group,Curaçao,Ivory Coast,1,0,2,A
+WC-058,2026-06-25 18:00,Group,Ecuador,Germany,1,2,1,H
+WC-059,2026-06-25 18:00,Group,Japan,Sweden,1,1,1,D
+WC-060,2026-06-25 18:00,Group,Tunisia,Netherlands,1,1,3,A
+WC-061,2026-06-26 18:00,Group,Egypt,Iran,1,1,1,D
+WC-062,2026-06-26 18:00,Group,New Zealand,Belgium,1,1,5,A
+WC-063,2026-06-26 18:00,Group,Cape Verde,Saudi Arabia,1,0,0,D
+WC-064,2026-06-26 18:00,Group,Uruguay,Spain,1,0,1,A
+WC-065,2026-06-26 18:00,Group,Norway,France,1,1,4,A
+WC-066,2026-06-26 18:00,Group,Senegal,Iraq,1,5,0,H
+WC-067,2026-06-27 18:00,Group,Algeria,Austria,1,3,3,D
+WC-068,2026-06-27 18:00,Group,Jordan,Argentina,1,1,3,A
+WC-069,2026-06-27 18:00,Group,Colombia,Portugal,1,0,0,D
+WC-070,2026-06-27 18:00,Group,DR Congo,Uzbekistan,1,3,1,H
+WC-071,2026-06-27 18:00,Group,Panama,England,1,0,2,A
+WC-072,2026-06-27 18:00,Group,Croatia,Ghana,1,2,1,H
+WC-073,2026-06-28 18:00,Round of 32,South Africa,Canada,1,0,1,A
+WC-074,2026-06-29 18:00,Round of 32,Brazil,Japan,0,,,
+WC-075,2026-06-29 18:00,Round of 32,Germany,Paraguay,0,,,
+WC-076,2026-06-29 18:00,Round of 32,Netherlands,Morocco,0,,,
+WC-077,2026-06-30 18:00,Round of 32,Ivory Coast,Norway,0,,,
+WC-078,2026-06-30 18:00,Round of 32,France,Sweden,0,,,
+WC-079,2026-06-30 18:00,Round of 32,Mexico,Ecuador,0,,,
+WC-080,2026-07-01 18:00,Round of 32,England,DR Congo,0,,,
+WC-081,2026-07-01 18:00,Round of 32,Belgium,Senegal,0,,,
+WC-082,2026-07-01 18:00,Round of 32,United States,Bosnia and Herzegovina,0,,,
+WC-083,2026-07-02 18:00,Round of 32,Spain,Austria,0,,,
+WC-084,2026-07-02 18:00,Round of 32,Portugal,Croatia,0,,,
+WC-085,2026-07-02 18:00,Round of 32,Switzerland,Algeria,0,,,
+WC-086,2026-07-03 18:00,Round of 32,Australia,Egypt,0,,,
+WC-087,2026-07-03 18:00,Round of 32,Argentina,Cape Verde,0,,,
+WC-088,2026-07-03 18:00,Round of 32,Colombia,Ghana,0,,,
