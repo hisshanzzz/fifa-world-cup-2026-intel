@@ -1,30 +1,28 @@
-"""Group players by playing style with KMeans.
+"""Group scorers by their REAL scoring profile with KMeans.
 
-We cluster on per-90 style signals (not raw volume), standardise them, then
-auto-label each cluster from its dominant standardised features so the labels
-read like scouting tags ("Finisher", "Creator", "Ball-winner", ...).
+Features are all derived from real goal data: how often they score, penalty
+reliance, how late their goals come, how early, and how many multi-goal games.
+Clusters are auto-labelled from the dominant standardised feature so they read
+like scouting tags ("Penalty Specialist", "Clutch Finisher", ...).
 """
 from __future__ import annotations
 
-import numpy as np
 import pandas as pd
 from sklearn.cluster import KMeans
 from sklearn.preprocessing import StandardScaler
 
 STYLE_FEATURES = [
-    "goals90", "assists90", "shots90", "key_passes90",
-    "dribbles90", "tackles90", "interceptions90",
+    "goals_per_match", "penalty_share", "late_share",
+    "first_half_share", "avg_goal_minute", "multi_goal_games",
 ]
 
-# Human-readable tag for whichever standardised feature dominates a cluster.
 FEATURE_TAGS = {
-    "goals90": "Finisher",
-    "shots90": "Volume Shooter",
-    "assists90": "Creator",
-    "key_passes90": "Playmaker",
-    "dribbles90": "Dribble-Carrier",
-    "tackles90": "Ball-Winner",
-    "interceptions90": "Interceptor",
+    "penalty_share": "Penalty Specialist",
+    "late_share": "Clutch Finisher",
+    "first_half_share": "Fast Starter",
+    "goals_per_match": "Prolific Scorer",
+    "multi_goal_games": "Multi-Goal Threat",
+    "avg_goal_minute": "Late-Game Scorer",
 }
 
 
@@ -36,17 +34,16 @@ def cluster_players(df: pd.DataFrame, k: int = 5, seed: int = 42) -> tuple[pd.Da
     km = KMeans(n_clusters=k, random_state=seed, n_init=10)
     df["cluster"] = km.fit_predict(Xs)
 
-    # centroid in standardised space -> dominant feature -> label
     centers = pd.DataFrame(km.cluster_centers_, columns=STYLE_FEATURES)
-    labels = {}
-    used = set()
+    labels, used = {}, set()
     for c in centers.index:
         ranked = centers.loc[c].sort_values(ascending=False)
-        tag = "All-Rounder"
+        tag = "Squad Contributor"
         for feat in ranked.index:
             cand = FEATURE_TAGS.get(feat)
             if cand and cand not in used and ranked[feat] > 0.25:
-                tag, _ = cand, used.add(cand)
+                tag = cand
+                used.add(cand)
                 break
         labels[c] = tag
     df["style"] = df["cluster"].map(labels)

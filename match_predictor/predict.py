@@ -62,7 +62,12 @@ def _advance_prob(probs: dict) -> float:
 
 def simulate_title_odds(bundle=None, n_sims: int = 5000, seed: int = 7) -> pd.DataFrame:
     bundle = bundle or load_model()
-    fx = pd.read_csv(FIXTURES).sort_values("match_id").reset_index(drop=True)
+    fx = pd.read_csv(FIXTURES)
+    # The knockout bracket starts at the Round of 32 (32 teams). Group-stage rows
+    # are excluded so the single-elimination sim is well-formed.
+    if "stage" in fx.columns and (fx.stage == "Round of 32").any():
+        fx = fx[fx.stage == "Round of 32"]
+    fx = fx.sort_values("match_id").reset_index(drop=True)
     rng = random.Random(seed)
 
     # cache advance probabilities

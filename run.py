@@ -1,8 +1,9 @@
 """One entry point for the whole project.
 
 Usage:
-  py run.py data        # (re)build the bundled dataset
-  py run.py train       # train the match-outcome model
+  py run.py data --download  # fetch raw real source CSVs, then build dataset
+  py run.py data             # rebuild dataset from already-downloaded sources
+  py run.py train            # train the match-outcome model
   py run.py predict     # print predictions + title odds in the terminal
   py run.py predictor   # launch the Streamlit match predictor
   py run.py tracker     # launch the Streamlit player tracker
@@ -22,7 +23,9 @@ def main() -> int:
     py = sys.executable
 
     if cmd == "data":
-        return subprocess.call([py, "data/build_data.py"])
+        # Build from REAL free data (martj42 international results + goalscorers).
+        # Pass --download the first time to fetch the raw source CSVs.
+        return subprocess.call([py, "data/fetch_real_data.py", *sys.argv[2:]])
     if cmd == "train":
         return subprocess.call([py, "-m", "match_predictor.model"])
     if cmd == "predict":
