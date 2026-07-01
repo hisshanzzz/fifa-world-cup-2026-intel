@@ -20,7 +20,11 @@ from this GitHub repo.
 
 ## Streamlit Community Cloud (~3 min each)
 
-**Already live:** [Match Predictor](https://wc2026-match-predictor.streamlit.app)
+**Target live URLs:**
+
+- 🔮 [Match Predictor](https://wc2026-match-predictor.streamlit.app) — verified **200**
+- 📊 [Player Tracker](https://wc2026-player-tracker.streamlit.app) — **404** at verify
+- 📡 [Sentiment Analyzer](https://wc2026-sentiment.streamlit.app) — **404** at verify
 
 **Player Tracker — one click (form prefilled):**
 
@@ -47,11 +51,13 @@ Manual path (same fields): **https://share.streamlit.io** → Create app → rep
 
 ## After deploying
 
-Live URLs (update README if subdomains differ):
+Live URLs:
 
 - 🔮 Predictor: https://wc2026-match-predictor.streamlit.app
-- 📊 Tracker: https://wc2026-player-tracker.streamlit.app *(after deploy)*
-- 📡 Sentiment: https://wc2026-sentiment.streamlit.app *(after deploy)*
+- 📊 Tracker: https://wc2026-player-tracker.streamlit.app
+- 📡 Sentiment: https://wc2026-sentiment.streamlit.app
+
+**HTTP check (2026-07-02):** Predictor `GET /` and `/_stcore/health` → **200**. Tracker and Sentiment at the subdomains above → **404** (app URL not registered). If you just deployed, wait for the build to finish; then in [Streamlit Cloud](https://share.streamlit.io) confirm each app’s **App URL** is exactly `wc2026-player-tracker` and `wc2026-sentiment` (or update these docs to match).
 
 Recommended demo order: **Predictor → Tracker → Sentiment** (finish on the live
 goal-shift animation — it's the crowd-pleaser).

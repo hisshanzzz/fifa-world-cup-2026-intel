@@ -27,8 +27,8 @@ no-paid-API stack:
 | App | Status | URL |
 |-----|--------|-----|
 | 🔮 Match Predictor | **Live** | https://wc2026-match-predictor.streamlit.app |
-| 📊 Player Tracker | Deploy (1 click) | [Open prefilled Streamlit deploy →](https://share.streamlit.io/deploy?repository=hisshanzzz%2Ffifa-world-cup-2026-intel&branch=main&mainModule=player_tracker%2Fapp.py) → set subdomain `wc2026-player-tracker`, Python **3.12**, Deploy |
-| 📡 Sentiment Analyzer | Deploy (1 click) | [Open prefilled Streamlit deploy →](https://share.streamlit.io/deploy?repository=hisshanzzz%2Ffifa-world-cup-2026-intel&branch=main&mainModule=sentiment_analyzer%2Fstreamlit_app.py) → set subdomain `wc2026-sentiment`, Python **3.12**, Deploy |
+| 📊 Player Tracker | **404** (confirm subdomain in [Streamlit Cloud](https://share.streamlit.io)) | https://wc2026-player-tracker.streamlit.app |
+| 📡 Sentiment Analyzer | **404** (confirm subdomain in [Streamlit Cloud](https://share.streamlit.io)) | https://wc2026-sentiment.streamlit.app |
 
 Full walkthrough in **[DEPLOY.md](DEPLOY.md)**. Suggested demo order:
 **Predictor → Tracker → Sentiment** (finish on the live goal-shift animation).
