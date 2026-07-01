@@ -22,16 +22,16 @@ no-paid-API stack:
 
 ## Show it to people 🎬
 
-**Live hosting (free):** deploy in a few clicks — full walkthrough in
-**[DEPLOY.md](DEPLOY.md)**. The two Streamlit apps go on Streamlit Community
-Cloud; the Dash app goes on Render via the included `render.yaml`. You'll get
-three public `*.streamlit.app` / `*.onrender.com` links to share.
+**Live apps (free hosting):**
 
-<!-- After deploying, paste your live links here:
-- 🔮 Predictor: https://...streamlit.app
-- 📊 Tracker:   https://...streamlit.app
-- 📡 Sentiment: https://...onrender.com
--->
+| App | Status | URL |
+|-----|--------|-----|
+| 🔮 Match Predictor | **Live** | https://wc2026-match-predictor.streamlit.app |
+| 📊 Player Tracker | Deploy (1 click) | [Open prefilled Streamlit deploy →](https://share.streamlit.io/deploy?repository=hisshanzzz%2Ffifa-world-cup-2026-intel&branch=main&mainModule=player_tracker%2Fapp.py) → set subdomain `wc2026-player-tracker`, Python **3.12**, Deploy |
+| 📡 Sentiment Analyzer | Deploy (1 click) | [Open Render Blueprint →](https://dashboard.render.com/blueprint/new?repo=https%3A%2F%2Fgithub.com%2Fhisshanzzz%2Ffifa-world-cup-2026-intel) → Apply → `https://wc2026-sentiment.onrender.com` |
+
+Full walkthrough in **[DEPLOY.md](DEPLOY.md)**. Suggested demo order:
+**Predictor → Tracker → Sentiment** (finish on the live goal-shift animation).
 
 **Demo it locally in one go** (three terminals):
 
@@ -145,7 +145,8 @@ Data credit: [martj42 International football results](https://github.com/martj42
 - [ ] Add an FBref export to bring assists / xG / defensive stats into the tracker
 - [ ] Calibrated draw model for group-stage matches
 - [ ] Persist scored tweets so the sentiment app survives restarts
-- [ ] Deploy all three (Streamlit Community Cloud + a Dash host)
+- [x] Deploy Match Predictor (Streamlit Community Cloud)
+- [ ] Deploy Player Tracker + Sentiment Analyzer ([one-click links above](#show-it-to-people-))
 
 ## License
 
