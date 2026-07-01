@@ -11,8 +11,25 @@ Usage:
 """
 from __future__ import annotations
 
+import os
 import subprocess
 import sys
+
+# Fixed, non-conflicting ports so the local URL is always the same.
+PREDICTOR_PORT = 8501
+TRACKER_PORT = 8502
+SENTIMENT_PORT = 8050
+
+
+def _run_streamlit(py: str, app: str, port: int) -> int:
+    url = f"http://localhost:{port}"
+    print(f"\nOpen this in your browser: {url}  (or http://127.0.0.1:{port})\n")
+    return subprocess.call([
+        py, "-m", "streamlit", "run", app,
+        "--server.port", str(port),
+        "--server.address", "127.0.0.1",
+        "--server.headless", "true",
+    ])
 
 
 def main() -> int:
@@ -31,10 +48,14 @@ def main() -> int:
     if cmd == "predict":
         return subprocess.call([py, "-m", "match_predictor.predict"])
     if cmd == "predictor":
-        return subprocess.call([py, "-m", "streamlit", "run", "match_predictor/app.py"])
+        return _run_streamlit(py, "match_predictor/app.py", PREDICTOR_PORT)
     if cmd == "tracker":
-        return subprocess.call([py, "-m", "streamlit", "run", "player_tracker/app.py"])
+        return _run_streamlit(py, "player_tracker/app.py", TRACKER_PORT)
     if cmd == "sentiment":
+        # Default to the offline VADER backend so it runs without API keys.
+        os.environ.setdefault("SENTIMENT_BACKEND", "vader")
+        url = f"http://localhost:{SENTIMENT_PORT}"
+        print(f"\nOpen this in your browser: {url}  (or http://127.0.0.1:{SENTIMENT_PORT})\n")
         return subprocess.call([py, "sentiment_analyzer/app.py"])
 
     print(f"Unknown command: {cmd}\n")
