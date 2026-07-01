@@ -20,6 +20,33 @@ no-paid-API stack:
 
 ---
 
+## Show it to people 🎬
+
+**Live hosting (free):** deploy in a few clicks — full walkthrough in
+**[DEPLOY.md](DEPLOY.md)**. The two Streamlit apps go on Streamlit Community
+Cloud; the Dash app goes on Render via the included `render.yaml`. You'll get
+three public `*.streamlit.app` / `*.onrender.com` links to share.
+
+<!-- After deploying, paste your live links here:
+- 🔮 Predictor: https://...streamlit.app
+- 📊 Tracker:   https://...streamlit.app
+- 📡 Sentiment: https://...onrender.com
+-->
+
+**Demo it locally in one go** (three terminals):
+
+```bash
+python run.py predictor   # http://localhost:8501
+python run.py tracker     # http://localhost:8501  (use a second port if needed)
+python run.py sentiment   # http://localhost:8050
+```
+
+Suggested flow: open the **Predictor** (title odds + a live "record a result"),
+then the **Tracker** (top scorers + style clusters), and finish on the
+**Sentiment** dashboard — hit ▶ Play and watch the mood swing on each goal.
+
+---
+
 ## Quick start
 
 ```bash

@@ -1,0 +1,9 @@
+# Optional HuggingFace backend for the sentiment analyzer.
+# Only needed if you want transformer-based sentiment instead of the default
+# VADER. Heavy (torch is ~800MB+), so it's kept out of the core requirements.
+# Needs Python <= 3.13 (torch has no 3.14 wheels yet).
+#
+#   pip install -r requirements-hf.txt
+#   set SENTIMENT_BACKEND=hf   (or put it in .env)
+transformers>=4.38
+torch>=2.2

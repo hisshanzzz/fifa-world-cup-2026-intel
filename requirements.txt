@@ -9,10 +9,12 @@ streamlit>=1.30
 plotly>=5.18
 dash>=2.14
 
-# Sentiment (HuggingFace primary, VADER fallback so it runs without torch)
-transformers>=4.38 ; python_version < "3.14"
-torch>=2.2 ; python_version < "3.14"
+# Sentiment: VADER runs everywhere (no torch). For the HuggingFace backend,
+# also install the heavy extras:  pip install -r requirements-hf.txt
 vaderSentiment>=3.3.2
+
+# Production server for the Dash app (used on cloud hosts; harmless locally)
+gunicorn>=21.2 ; platform_system != "Windows"
 
 # Optional live tweet ingestion (only used if X API keys are present)
 tweepy>=4.14

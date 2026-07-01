@@ -1,0 +1,15 @@
+# Deploy the Dash sentiment dashboard on Render's free tier.
+# 1. Push this repo to GitHub (done).
+# 2. On render.com -> New -> Blueprint -> pick this repo. Render reads this file.
+services:
+  - type: web
+    name: wc2026-sentiment
+    runtime: python
+    plan: free
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn sentiment_analyzer.app:server --bind 0.0.0.0:$PORT"
+    envVars:
+      - key: SENTIMENT_BACKEND
+        value: vader
+      - key: PYTHON_VERSION
+        value: "3.12.7"
