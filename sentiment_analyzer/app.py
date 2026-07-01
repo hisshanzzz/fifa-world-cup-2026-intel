@@ -1,4 +1,7 @@
-"""Live match sentiment dashboard (Plotly Dash).
+"""Live match sentiment dashboard (Plotly Dash) — DEPRECATED.
+
+Prefer sentiment_analyzer/streamlit_app.py (Streamlit Community Cloud, no card).
+This Dash version is kept for reference; run via `python sentiment_analyzer/app.py`.
 
 A dcc.Interval advances a 'live' match clock; as the clock moves we reveal more
 tweets and re-plot how sentiment shifts -- with dashed markers on every goal so

@@ -7,7 +7,7 @@ Usage:
   py run.py predict     # print predictions + title odds in the terminal
   py run.py predictor   # launch the Streamlit match predictor
   py run.py tracker     # launch the Streamlit player tracker
-  py run.py sentiment   # launch the Plotly Dash live sentiment dashboard
+  py run.py sentiment   # launch the Streamlit live sentiment dashboard
 """
 from __future__ import annotations
 
@@ -54,9 +54,7 @@ def main() -> int:
     if cmd == "sentiment":
         # Default to the offline VADER backend so it runs without API keys.
         os.environ.setdefault("SENTIMENT_BACKEND", "vader")
-        url = f"http://localhost:{SENTIMENT_PORT}"
-        print(f"\nOpen this in your browser: {url}  (or http://127.0.0.1:{SENTIMENT_PORT})\n")
-        return subprocess.call([py, "sentiment_analyzer/app.py"])
+        return _run_streamlit(py, "sentiment_analyzer/streamlit_app.py", SENTIMENT_PORT)
 
     print(f"Unknown command: {cmd}\n")
     print(__doc__)

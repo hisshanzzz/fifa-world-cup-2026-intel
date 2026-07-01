@@ -9,7 +9,7 @@ no-paid-API stack:
 |---|---------|--------------|-------|
 | 1 | **Match Outcome Predictor** | Predicts the winner of every remaining match and updates after each result. Monte-Carlo simulates the knockout bracket into live **title odds**. | pandas · scikit-learn · Streamlit |
 | 2 | **Player Performance Tracker** | Live leaderboard ranking real WC2026 scorers by goals / **Impact Score**, and groups them by **scoring style** with KMeans. | pandas · Plotly · scikit-learn (KMeans) |
-| 3 | **Real-Time Sentiment Analyzer** | Replays match tweets minute-by-minute and visualizes how public opinion **shifts after every goal**. | tweepy · HuggingFace / VADER · Plotly Dash |
+| 3 | **Real-Time Sentiment Analyzer** | Replays match tweets minute-by-minute and visualizes how public opinion **shifts after every goal**. | tweepy · HuggingFace / VADER · Streamlit |
 
 > **Real data, no paid keys.** Teams, ratings, training history, the live 2026
 > fixtures, and player goals all come from the public-domain
@@ -28,7 +28,7 @@ no-paid-API stack:
 |-----|--------|-----|
 | 🔮 Match Predictor | **Live** | https://wc2026-match-predictor.streamlit.app |
 | 📊 Player Tracker | Deploy (1 click) | [Open prefilled Streamlit deploy →](https://share.streamlit.io/deploy?repository=hisshanzzz%2Ffifa-world-cup-2026-intel&branch=main&mainModule=player_tracker%2Fapp.py) → set subdomain `wc2026-player-tracker`, Python **3.12**, Deploy |
-| 📡 Sentiment Analyzer | Deploy (1 click) | [Open Render Blueprint →](https://dashboard.render.com/blueprint/new?repo=https%3A%2F%2Fgithub.com%2Fhisshanzzz%2Ffifa-world-cup-2026-intel) → Apply → `https://wc2026-sentiment.onrender.com` |
+| 📡 Sentiment Analyzer | Deploy (1 click) | [Open prefilled Streamlit deploy →](https://share.streamlit.io/deploy?repository=hisshanzzz%2Ffifa-world-cup-2026-intel&branch=main&mainModule=sentiment_analyzer%2Fstreamlit_app.py) → set subdomain `wc2026-sentiment`, Python **3.12**, Deploy |
 
 Full walkthrough in **[DEPLOY.md](DEPLOY.md)**. Suggested demo order:
 **Predictor → Tracker → Sentiment** (finish on the live goal-shift animation).
@@ -63,7 +63,7 @@ python run.py train             # train the predictor on real results
 
 python run.py predictor  # Streamlit  -> http://localhost:8501
 python run.py tracker    # Streamlit  -> http://localhost:8501
-python run.py sentiment  # Dash       -> http://localhost:8050
+python run.py sentiment  # Streamlit  -> http://localhost:8050
 ```
 
 > On bleeding-edge Python where `torch` has no wheels yet, the sentiment app
@@ -112,9 +112,9 @@ py -m match_predictor.predict
   set, otherwise minute-by-minute replay of tweets anchored to real matches.
 - **Scoring** (`sentiment_analyzer/sentiment.py`): HuggingFace `distilbert-sst-2`
   with automatic VADER fallback; both emit a polarity in `[-1, 1]`.
-- **Dashboard** (`sentiment_analyzer/app.py`): a play/pause "live" clock, rolling
+- **Dashboard** (`sentiment_analyzer/streamlit_app.py`): a play/pause "live" clock, rolling
   per-team sentiment lines, and **dashed goal markers** so you can watch the mood
-  swing on every goal.
+  swing on every goal. (Legacy Dash version: `sentiment_analyzer/app.py`.)
 
 ---
 
